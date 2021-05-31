@@ -1,0 +1,13 @@
+table {
+    position: absolute;
+    top: 120px;
+    bottom: 0px;
+    width:100%;
+}
+
+#button1 {
+    position: absolute;
+    top: 100px;
+    margin-left: 860px;
+}
+

@@ -1,0 +1,37 @@
+<button *ngIf=isAdminAuthenticated() (click)="goToAddNewProduct()" id="button1" class="btn btn-primary"> Add new
+  <span class="glyphicon glyphicon-plus"></span>
+</button>
+<div class="topnav">
+  <a class="active"  [routerLink]="['/listProducts']">Product List</a>
+  <a [routerLink]="['/listTransactions']">Transaction List</a>
+  <a [routerLink]="['/login']">Log Out</a>
+</div>
+<table class="table">
+  
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>
+        <button *ngIf=isAdminAuthenticated() (click)="delete(product)" class="btn btn-danger btn-sm">Delete</button>
+        <button *ngIf=isAdminAuthenticated() (click)="goToUpdateProduct(product)" type="button" class="btn btn-primary btn-sm">Edit</button>
+
+        <button (click)="createNewTransaction(product)" class="btn btn-success btn-sm">Buy</button>
+
+      </td>
+    </tr>
+    <tr *ngIf="loading">
+     <td colspan="5" align="center">Fetching Products...</td>
+    </tr>
+  </tbody>
+  
+</table>
+

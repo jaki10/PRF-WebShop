@@ -1,0 +1,28 @@
+<div class="topnav">
+    <a [routerLink]="['/listProducts']">Product List</a>
+    <a class="active"  [routerLink]="['/listTransactions']">Transaction List</a>
+    <a [routerLink]="['/login']">Log Out</a>
+  </div>
+  <table class="table">
+    
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Datum</th>
+        <th scope="col">Sum</th>
+        <th scope="col">ProductId</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{transaction.id}}</td>
+        <td>{{transaction.datum}}</td>
+        <td>{{transaction.sum}}</td>
+        <td>{{transaction.productId}}</td>
+      </tr>
+      <tr *ngIf="loading">
+       <td colspan="5" align="center">Fetching Products...</td>
+      </tr>
+    </tbody>
+    
+  </table>

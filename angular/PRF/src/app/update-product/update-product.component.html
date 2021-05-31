@@ -1,0 +1,24 @@
+<div class="topnav">
+  <a [routerLink]="['/listProducts']">Product List</a>
+  <a [routerLink]="['/listTransactions']">Transaction List</a>
+  <a [routerLink]="['/login']">Log Out</a>
+</div>
+<h2 class="pb-2 mb-0">Update Product</h2>
+<br><br>
+    
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group">
+        <label for="name">ID</label>
+        <input formControlName="id" type="text" class="form-control" id="id" readonly>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input formControlName="name" type="text" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input formControlName="price" type="text" class="form-control" id="price">
+      </div>
+      <br>
+      <button type="submit" [disabled]="loader || productForm.invalid" class="btn btn-primary">{{loader?'Updating':'Update'}}</button>
+    </form> 
